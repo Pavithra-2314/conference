@@ -1,22 +1,26 @@
 ---
-import MenuItem from "./MenuItem.astro";
-const menuItems = ["Home", "About", "Register", "Speakers","Contact"]
+import MenuItem from './MenuItem.astro';
+const menuItems = [
+    { title: 'Home', icon: 'ic:round-home' },
+    { title: 'About', icon: 'mdi:about' },
+    { title: 'Register', icon: 'mdi:register' },
+    { title: 'Speakers', icon: 'ph:user-fill' },
+    { title: 'Contact', icon: 'mdi:contact' },
+];
 ---
+
 <nav>
     <ul>
+        {
+            menuItems.map(({ title, icon }, index) => (
+                <MenuItem title={title} icon={icon} target={index} />
+            ))
+        }
 
-
-<!-- {menuItems.map((menuItem) => (
-    <MenuItem  title={menuItem} />
-))} -->
-
-
-
-        <MenuItem icon="ic:round-home" title="Home"/>
-        <MenuItem icon="mdi:about" title="About"/>
-        <MenuItem icon="mdi:register" title="Register"/>
-        <MenuItem icon="ph:user-fill" title="Speakers"/>
-        <MenuItem icon="mdi:contact" title="Contact"/> 
-        
-      </ul>
+        <!-- <MenuItem icon="ic:round-home" title="Home" target={0}/>
+        <MenuItem icon="mdi:about" title="About" target={1}/>
+        <MenuItem icon="mdi:register" title="Register" target={2}/>
+        <MenuItem icon="ph:user-fill" title="Speakers" target={3}/>
+        <MenuItem icon="mdi:contact" title="Contact" target={4}/>  -->
+    </ul>
 </nav>

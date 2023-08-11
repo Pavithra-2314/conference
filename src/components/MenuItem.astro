@@ -1,33 +1,47 @@
 ---
-import {Icon} from 'astro-icon'
-
-const { title , icon } = Astro.props
+import { Icon } from 'astro-icon';
+const { title, icon, target } = Astro.props;
 
 interface Props {
-title: string
-icon: string
+    title: string;
+    icon: string;
+    target: number;
 }
 ---
 
-<li>
-    <a href="#1"><Icon name={icon} /> <em>{title}</em></a>
-    
+<!-- HTML -->
+<li class="menu_item" data-target={target}>
+    <a><Icon name={icon} /> <em>{title}</em></a>
 </li>
 
+<!-- Styles -->
 <style>
+    li {
+        cursor: pointer;
+    }
     [astro-icon] {
         height: 32px;
         width: 32px;
         margin-right: 7px;
     }
-    a{
+    a {
         display: flex;
         align-items: center;
-      
     }
 </style>
 
-
+<!-- JS Scripts -->
 <script>
-    
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuItems = document.querySelectorAll('.menu_item');
+        const menuItemsArray = Array.from(menuItems) as HTMLElement[];
+
+        // Handle clicks on each button.
+        menuItemsArray.forEach((menuItem) => {
+            menuItem.addEventListener('click', () => {
+                const glideSlideEl = (window as any).__glide__;
+                glideSlideEl.go(`=${menuItem.dataset.target}`);
+            });
+        });
+    });
 </script>
