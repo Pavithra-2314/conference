@@ -1,0 +1,22 @@
+---
+import MenuItem from "./MenuItem.astro";
+const menuItems = ["Home", "About", "Register", "Speakers","Contact"]
+---
+<nav>
+    <ul>
+
+
+<!-- {menuItems.map((menuItem) => (
+    <MenuItem  title={menuItem} />
+))} -->
+
+
+
+        <MenuItem icon="ic:round-home" title="Home"/>
+        <MenuItem icon="mdi:about" title="About"/>
+        <MenuItem icon="mdi:register" title="Register"/>
+        <MenuItem icon="ph:user-fill" title="Speakers"/>
+        <MenuItem icon="mdi:contact" title="Contact"/> 
+        
+      </ul>
+</nav>

@@ -1,0 +1,33 @@
+---
+import {Icon} from 'astro-icon'
+
+const { title , icon } = Astro.props
+
+interface Props {
+title: string
+icon: string
+}
+---
+
+<li>
+    <a href="#1"><Icon name={icon} /> <em>{title}</em></a>
+    
+</li>
+
+<style>
+    [astro-icon] {
+        height: 32px;
+        width: 32px;
+        margin-right: 7px;
+    }
+    a{
+        display: flex;
+        align-items: center;
+      
+    }
+</style>
+
+
+<script>
+    
+</script>
